@@ -13,7 +13,7 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_DB: simplebank
+          POSTGRES_DB: simple_bank
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
         ports:
