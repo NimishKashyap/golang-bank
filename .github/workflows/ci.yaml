@@ -16,6 +16,8 @@ jobs:
           POSTGRES_DB: simplebank
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
+        ports:
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -29,8 +31,8 @@ jobs:
           go-version: 1.19
         id: go
       - name: Install golang-migrate
-        run: i|
-          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-arm64.deb | tar xvz
+        run: |
+          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-arm64.tar.gz | tar xvz
           sudo mv migrate.linux-amd64 /usr/bin/migrate
           which migrate
 
