@@ -1,0 +1,14 @@
+Github actions: 
+
+Consists of workflows - 
+
+Each workflow can be triggerred by event:which
+Each workflow Consists of multiple jobs. Jobs run parallaly if
+specified otherwise.
+
+Each job consists of multiple steps which are executed serially.
+
+Each job consist of action which is individual commands.
+Actions are reusable.
+
+All logs are then returned to Github
