@@ -6,6 +6,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/NimishKashyap/simplebank/util"
 	_ "github.com/lib/pq"
 )
 
@@ -19,7 +20,14 @@ const (
 
 func TestMain(m *testing.M) {
 	var err error
-	testDB, err = sql.Open(dbDriver, dbSource)
+
+	config, err := util.LoadConfig("../..")
+
+	if err != nil {
+		log.Fatal("Couln't load cofig:", err)
+	}
+
+	testDB, err = sql.Open(config.DBDriver, config.DBSource)
 
 	if err != nil {
 		log.Fatal("Couldn't connect to database", err)
